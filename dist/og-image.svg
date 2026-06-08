@@ -1,0 +1,32 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='630'>
+  <defs>
+    <linearGradient id='bg' x1='0%' y1='0%' x2='100%' y2='100%'>
+      <stop offset='0%' stop-color='#fdf8ef'/>
+      <stop offset='100%' stop-color='#f8eede'/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width='1200' height='630' fill='url(#bg)'/>
+  <!-- Decorative circles -->
+  <circle cx='980' cy='120' r='220' fill='#ef6a5a' opacity='0.08'/>
+  <circle cx='1100' cy='500' r='160' fill='#f3c14f' opacity='0.1'/>
+  <circle cx='80' cy='520' r='140' fill='#ffb486' opacity='0.09'/>
+  <!-- Logo mark -->
+  <rect x='80' y='80' width='72' height='72' rx='20' fill='#ef6a5a'/>
+  <path d='M152 116 L152 130 A20 20 0 0 1 132 152 L116 152 Z' fill='#f3c14f'/>
+  <text x='116' y='128' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-weight='700' font-size='36' fill='white'>SV</text>
+  <!-- Brand name -->
+  <text x='172' y='128' font-family='Georgia,serif' font-style='italic' font-weight='700' font-size='32' fill='#2b2016'>Studio Velora</text>
+  <!-- Main headline -->
+  <text x='80' y='280' font-family='Georgia,serif' font-weight='700' font-size='72' fill='#2b2016'>Digitaal design</text>
+  <text x='80' y='368' font-family='Georgia,serif' font-weight='700' font-size='72' fill='#2b2016'>&amp; development</text>
+  <!-- Subline -->
+  <text x='80' y='440' font-family='Arial,sans-serif' font-size='28' fill='#7a6a55' font-weight='500'>Websites · Webshops · SEO — voor lokale ondernemers</text>
+  <!-- Price tags -->
+  <rect x='80' y='490' width='220' height='52' rx='26' fill='#ef6a5a'/>
+  <text x='190' y='522' text-anchor='middle' font-family='Arial,sans-serif' font-weight='700' font-size='20' fill='white'>Vanaf €750</text>
+  <rect x='316' y='490' width='260' height='52' rx='26' fill='white' stroke='#ef6a5a' stroke-width='2'/>
+  <text x='446' y='522' text-anchor='middle' font-family='Arial,sans-serif' font-weight='700' font-size='20' fill='#ef6a5a'>Webshop €2.500</text>
+  <!-- URL -->
+  <text x='1120' y='590' text-anchor='end' font-family='Arial,sans-serif' font-size='22' fill='#b0a090'>studiovelora.nl</text>
+</svg>

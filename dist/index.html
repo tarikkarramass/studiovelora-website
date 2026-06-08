@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>Studio Velora — Digitaal design &amp; development studio</title>
+  <meta name="description" content="Studio Velora is een digitaal design &amp; development studio. We bouwen snelle websites, webshops en doen SEO voor ondernemers. Website vanaf €750, webshop vanaf €2.500." />
+  <meta name="keywords" content="website laten maken, webshop, SEO, SEA, social media advertising, webdesign Nederland, conversie optimalisatie, branding, huisstijl, meertalige website" />
+  <meta name="author" content="Studio Velora" />
+  <link rel="canonical" href="https://studiovelora.nl/" />
+
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://studiovelora.nl/" />
+  <meta property="og:title"       content="Studio Velora — Digitaal design &amp; development studio" />
+  <meta property="og:description" content="Websites, webshops &amp; SEO voor ondernemers. Vaste prijzen, persoonlijk contact." />
+  <meta property="og:image"       content="https://studiovelora.nl/og-image.jpg" />
+  <meta name="twitter:card"       content="summary_large_image" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Studio Velora",
+    "description": "Digitaal design & development studio: websites, webshops en SEO",
+    "url": "https://studiovelora.nl",
+    "email": "info@studiovelora.nl",
+    "telephone": "+31611277632",
+    "areaServed": "NL",
+    "priceRange": "€750 - €2500",
+    "openingHours": "Mo-Su 09:00-20:00"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Quicksand:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@1,600;1,700&display=swap" rel="stylesheet" />
+  <script type="module" crossorigin src="/assets/main-BXjzBhyR.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/style-DFMZhSBt.css">
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+
+<!-- COOKIE POPUP -->
+<div class="cookie-popup" id="cookie-popup">
+  <div class="cookie-inner">
+    <div class="cookie-text">
+      <strong>Cookies</strong>
+      <p>We gebruiken cookies om de website te verbeteren. Lees ons <a href="cookies.html">cookiebeleid</a>.</p>
+    </div>
+    <div class="cookie-btns">
+      <button id="cookie-minimal" class="cookie-btn-ghost">Alleen noodzakelijk</button>
+      <button id="cookie-accept"  class="cookie-btn-solid">Accepteer alles</button>
+    </div>
+  </div>
+</div>
+
+<canvas id="webgl-canvas"></canvas>
+
+<!-- NAV -->
+<nav id="nav" class="nav anim-el">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <span class="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 44 44" width="38" height="38">
+          <rect width="44" height="44" rx="13" fill="#ef6a5a"/>
+          <path d="M44 24 L44 31 A13 13 0 0 1 31 44 L24 44 Z" fill="#f3c14f"/>
+          <text x="22" y="29" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-style="italic" font-weight="700" font-size="21" fill="#ffffff">SV</text>
+        </svg>
+      </span>
+      <span class="brand">Studio Velora</span>
+    </a>
+    <div class="nav-actions">
+      <a href="portfolio.html" class="nav-cta nav-cta-ghost">Portfolio</a>
+      <a href="offerte.html" class="nav-cta">Gratis offerte</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <h1 class="hero-title word-fade" id="hero-title">Digitaal design &amp; development studio</h1>
+    <p class="hero-sub word-fade" id="hero-sub">We helpen ondernemers en bedrijven schaalbare digitale producten bouwen — met doordacht design en zorgvuldige ontwikkeling.</p>
+    <div class="hero-btns anim-el" id="hero-btns">
+      <a href="offerte.html" class="btn btn-primary btn-lg">Gratis offerte</a>
+      <a href="portfolio.html" class="btn btn-ghost btn-lg">Bekijk ons werk</a>
+    </div>
+    <p class="hero-trust anim-el" id="hero-trust">Websites <b>vanaf €750</b> · Webshops <b>vanaf €2.500</b> · SEO inbegrepen</p>
+    <div class="pay-strip anim-el" id="pay-strip">
+      <span class="pay-label">Werkt met</span>
+      <span class="pay-item"><span class="pay-logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="100 100 312 312" width="22" height="22"><path fill="#635bff" fill-rule="evenodd" d="m120 392 272-57.683V120l-272 58.357z" clip-rule="evenodd"/></svg></span><span class="pay-word">Stripe</span></span>
+      <span class="pay-logo pay-logo-ideal" title="iDEAL &amp; Wero"><img src="/ideal-wero.png" alt="iDEAL &amp; Wero" height="28" style="height:28px;width:auto;display:block;" onerror="this.parentElement.innerHTML='<span class=\'pay-word\'>i<span class=\'i\'>DEAL</span> &amp; Wero</span>'" /></span>
+      <span class="pay-word">Mollie</span>
+      <span class="pay-item"><span class="pay-logo"><svg viewBox="0 0 256 292" width="20" height="23" xmlns="http://www.w3.org/2000/svg"><path d="M223.774 57.34c-.201-1.46-1.48-2.268-2.537-2.357-1.055-.088-23.383-1.743-23.383-1.743s-15.507-15.395-17.209-17.099c-1.703-1.703-5.029-1.185-6.32-.805-.19.056-3.388 1.043-8.678 2.68-5.18-14.906-14.322-28.604-30.405-28.604-.444 0-.901.018-1.358.044C129.31 3.407 123.644.779 118.75.779c-37.465 0-55.364 46.835-60.976 70.635-14.558 4.511-24.9 7.718-26.221 8.133-8.126 2.549-8.383 2.805-9.45 10.462C21.3 95.806.038 260.235.038 260.235l165.678 31.042 89.77-19.42S223.973 58.8 223.775 57.34zM156.49 40.848l-14.019 4.339c.005-.988.01-1.96.01-3.023 0-9.264-1.286-16.723-3.349-22.636 8.287 1.04 13.806 10.469 17.358 21.32zm-27.638-19.483c2.304 5.773 3.802 14.058 3.802 25.238 0 .572-.005 1.095-.01 1.624-9.117 2.824-19.024 5.89-28.953 8.966 5.575-21.516 16.025-31.908 25.161-35.828zm-11.131-10.537c1.617 0 3.246.549 4.805 1.622-12.007 5.65-24.877 19.88-30.312 48.297l-22.886 7.088C75.694 46.16 90.81 10.828 117.72 10.828z" fill="#95BF46"/><path d="M221.237 54.983c-1.055-.088-23.383-1.743-23.383-1.743s-15.507-15.395-17.209-17.099c-.637-.634-1.496-.959-2.394-1.099l-12.527 256.233 89.762-19.418S223.972 58.8 223.774 57.34c-.201-1.46-1.48-2.268-2.537-2.357" fill="#5E8E3E"/><path d="M135.242 104.585l-11.069 32.926s-9.698-5.176-21.586-5.176c-17.428 0-18.305 10.937-18.305 13.693 0 15.038 39.2 20.8 39.2 56.024 0 27.713-17.577 45.558-41.277 45.558-28.44 0-42.984-17.7-42.984-17.7l7.615-25.16s14.95 12.835 27.565 12.835c8.243 0 11.596-6.49 11.596-11.232 0-19.616-32.16-20.491-32.16-52.724 0-27.129 19.472-53.382 58.778-53.382 15.145 0 22.627 4.338 22.627 4.338" fill="#FFF"/></svg></span><span class="pay-word">Shopify</span></span>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF BAR -->
+<div class="proof-bar" data-reveal>
+  <div class="proof-bar-inner">
+    <span class="proof-item">Vaste, eerlijke prijzen</span><span class="proof-dot"></span>
+    <span class="proof-item">SEO standaard inbegrepen</span><span class="proof-dot"></span>
+    <span class="proof-item">Gratis hosting-setup</span><span class="proof-dot"></span>
+    <span class="proof-item">Zakelijk e-mailadres</span><span class="proof-dot"></span>
+    <span class="proof-item">Meertalige websites</span><span class="proof-dot"></span>
+    <span class="proof-item">30 dagen support</span>
+  </div>
+</div>
+
+<!-- OVER -->
+<section class="section section-about" id="over">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-left">
+        <span class="tag" data-reveal>Over ons</span>
+        <h2 class="section-title" data-reveal>Gebouwd voor<br>lokale<br>ondernemers</h2>
+      </div>
+      <div class="about-right" data-reveal>
+        <p class="about-intro"><span class="brand brand-inline">Studio Velora</span> is een digitaal design &amp; development studio. Geen grote agency met hoge overhead, maar directe samenwerking met de persoon die jouw website bouwt.</p>
+        <p class="about-body">We bouwen websites en webshops die er niet alleen strak uitzien, maar ook echt werken: snel laden, goed gevonden op Google, en ontworpen om bezoekers om te zetten in klanten.</p>
+        <div class="about-pills" data-stagger="80">
+          <span class="pill">Maatwerk design</span>
+          <span class="pill">Persoonlijk contact</span>
+          <span class="pill">Vaste prijzen</span>
+          <span class="pill">Meertalig</span>
+          <span class="pill">SEO inbegrepen</span>
+          <span class="pill">Mobile-first</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIENSTEN -->
+<section class="section" id="diensten">
+  <div class="container">
+    <div class="section-header" data-reveal>
+      <span class="tag">Diensten</span>
+      <h2 class="section-title">Wat we bouwen</h2>
+      <p class="section-sub">Drie heldere diensten. Vaste prijzen. Geen verborgen kosten.</p>
+    </div>
+
+    <div class="diensten-grid" data-stagger="100">
+      <div class="dienst-card">
+        <div class="dc-num">01</div>
+        <h3 class="dc-title">Zakelijke website</h3>
+        <p class="dc-desc">Een strakke, snelle website die je bedrijf sterk presenteert. Mobiel-vriendelijk en gevonden op Google.</p>
+        <ul class="dc-list">
+          <li>Meerdere pagina's op maat</li>
+          <li>Mobile-first design</li>
+          <li>SEO inbegrepen</li>
+          <li>Meertalig mogelijk</li>
+          <li>2 revisierondes</li>
+          <li>30 dagen support</li>
+        </ul>
+        <div class="dc-bottom">
+          <div class="dc-price">€750 <span>excl. btw</span></div>
+          <a href="offerte.html" class="btn btn-primary btn-sm">Offerte</a>
+        </div>
+      </div>
+
+      <div class="dienst-card">
+        <div class="dc-num">02</div>
+        <h3 class="dc-title">Webshop</h3>
+        <p class="dc-desc">Online verkopen met veilige betalingen via iDEAL, Stripe en Mollie. Eenvoudig te beheren.</p>
+        <ul class="dc-list">
+          <li>Productcatalogus</li>
+          <li>iDEAL / Stripe / Mollie</li>
+          <li>Bestellingsbeheer</li>
+          <li>SEO inbegrepen</li>
+          <li>2 revisierondes</li>
+          <li>30 dagen support</li>
+        </ul>
+        <div class="dc-bottom">
+          <div class="dc-price">€2.500 <span>excl. btw</span></div>
+          <a href="offerte.html" class="btn btn-primary btn-sm">Offerte</a>
+        </div>
+      </div>
+
+      <div class="dienst-card">
+        <div class="dc-num">03</div>
+        <h3 class="dc-title">Onderhoud &amp; beheer</h3>
+        <p class="dc-desc">Geen gedoe met aanpassingen. Kies wat past — er zijn geen verplichte maandkosten.</p>
+        <ul class="dc-list">
+          <li>Onbeperkt kleine aanpassingen (abonnement)</li>
+          <li>Updates &amp; beveiliging</li>
+          <li>Snelle responstijd</li>
+          <li>Altijd bereikbaar via WhatsApp</li>
+        </ul>
+        <div class="dc-bottom">
+          <div class="dc-price dc-price-dual">
+            <span class="dp-opt">€30<small>/mnd</small></span><span class="dp-or">óf</span><span class="dp-opt">€50<small>/uur</small></span>
+          </div>
+        </div>
+        <p class="dc-note">Geen verplichte maandkosten — betaal per maand óf per uur, wat jij wil.</p>
+      </div>
+    </div>
+
+    <!-- ALTIJD INBEGREPEN -->
+    <div class="incl-band" data-stagger="90">
+      <div class="incl-item">
+        <h4>Gratis hosting-setup</h4>
+        <p>We zetten de hosting volledig voor je op. De hostingkosten lopen op jouw naam (gemiddeld €5–€15/mnd) — zo blijf je altijd eigenaar.</p>
+      </div>
+      <div class="incl-item">
+        <h4>Zakelijk e-mailadres</h4>
+        <p>Een professioneel adres als jij@jouwbedrijf.nl. We helpen je persoonlijk om de mail op je telefoon én laptop te zetten.</p>
+      </div>
+      <div class="incl-item">
+        <h4>SEO inbegrepen</h4>
+        <p>Technisch SEO-klaar opgeleverd en aangemeld bij Google Search Console.</p>
+      </div>
+      <div class="incl-item">
+        <h4>Website in alle talen</h4>
+        <p>Website in meerdere talen naar keuze — handig voor internationale klanten.</p>
+      </div>
+    </div>
+
+    <div class="section-cta" data-reveal><a href="offerte.html" class="btn btn-primary btn-lg">Start je project</a></div>
+  </div>
+</section>
+
+<!-- FEATURE MARQUEE -->
+<section class="section section-features" id="features">
+  <div class="container">
+    <div class="section-header" data-reveal>
+      <span class="tag">Mogelijkheden</span>
+      <h2 class="section-title">Alles mogelijk.<br>Niets te veel.</h2>
+      <p class="section-sub">Van een eenvoudige contactpagina tot een volledig klantportaal met AI. Een greep uit wat we bouwen.</p>
+    </div>
+  </div>
+
+  <div class="feat-marquee" id="feat-marquee">
+    <div class="feat-card"><div class="feat-name">Afspraakmodule</div><div class="feat-desc">Klanten plannen zelf afspraken</div></div>
+    <div class="feat-card"><div class="feat-name">Online reserveringen</div><div class="feat-desc">Tafels, kamers of plekken</div></div>
+    <div class="feat-card"><div class="feat-name">Webshop</div><div class="feat-desc">Productbeheer en betaling</div></div>
+    <div class="feat-card"><div class="feat-name">Reviews</div><div class="feat-desc">Google reviews tonen</div></div>
+    <div class="feat-card"><div class="feat-name">Google Maps</div><div class="feat-desc">Interactieve locatiekaart</div></div>
+    <div class="feat-card"><div class="feat-name">WhatsApp</div><div class="feat-desc">Direct contact-knop</div></div>
+    <div class="feat-card"><div class="feat-name">Live chat</div><div class="feat-desc">Realtime met bezoekers</div></div>
+    <div class="feat-card"><div class="feat-name">Klantportaal</div><div class="feat-desc">Eigen omgeving per klant</div></div>
+    <div class="feat-card"><div class="feat-name">Loginomgeving</div><div class="feat-desc">Beveiligde inlogpagina</div></div>
+    <div class="feat-card"><div class="feat-name">Admin dashboard</div><div class="feat-desc">Beheer al je data</div></div>
+    <div class="feat-card"><div class="feat-name">Factuurmodule</div><div class="feat-desc">Automatisch factureren</div></div>
+    <div class="feat-card"><div class="feat-name">Blog / nieuws</div><div class="feat-desc">Artikelen &amp; tips</div></div>
+    <div class="feat-card"><div class="feat-name">CMS</div><div class="feat-desc">Zelf teksten aanpassen</div></div>
+    <div class="feat-card"><div class="feat-name">Meertaligheid</div><div class="feat-desc">Site in meerdere talen</div></div>
+    <div class="feat-card"><div class="feat-name">iDEAL betaling</div><div class="feat-desc">Veilig betalen</div></div>
+    <div class="feat-card"><div class="feat-name">AI chatbot</div><div class="feat-desc">24/7 automatisch antwoord</div></div>
+    <div class="feat-card"><div class="feat-name">Analytics</div><div class="feat-desc">Inzicht in bezoekers</div></div>
+    <div class="feat-card"><div class="feat-name">Nieuwsbrief</div><div class="feat-desc">E-maillijst opbouwen</div></div>
+    <div class="feat-card"><div class="feat-name">Automatisering</div><div class="feat-desc">Mails bij acties</div></div>
+  </div>
+
+  <div class="container">
+    <div class="feat-foot" data-reveal>
+      <p>Iets anders nodig? Heeft jouw bedrijf een specifieke wens? We bouwen het.</p>
+      <a href="offerte.html" class="btn btn-primary">Vraag het ons</a>
+    </div>
+  </div>
+</section>
+
+<!-- SEO -->
+<section class="section section-seo" id="seo">
+  <div class="container">
+    <div class="seo-grid">
+      <div class="seo-left" data-reveal>
+        <span class="tag">Zoekmachine optimalisatie</span>
+        <h2 class="section-title">Gevonden worden<br>op Google</h2>
+        <p class="seo-intro">Een strakke website zonder bezoekers heeft weinig zin. Met <abbr data-tip="SEO|Zoekmachine optimalisatie: je website zo inrichten dat Google je hoger toont in de zoekresultaten.">SEO</abbr> zorgen we dat klanten je vinden wanneer ze zoeken naar wat jij aanbiedt — zonder dat je per klik betaalt.</p>
+        <p class="seo-body">Bij elke website is een stevige SEO-basis inbegrepen. Wil je verder groeien? Dan helpen we met doorlopende optimalisatie en social media advertising.</p>
+        <div class="seo-cta">
+          <a href="seo.html" class="btn btn-primary">Meer over SEO</a>
+          <a href="seo-quickscan.html" class="btn btn-ghost">Gratis SEO-quickscan</a>
+        </div>
+      </div>
+      <div class="seo-right" data-stagger="90">
+        <div class="seo-item"><span class="seo-num">01</span><div><h4>Zoekwoordenonderzoek</h4><p>We achterhalen waar jouw klanten écht op zoeken.</p></div></div>
+        <div class="seo-item"><span class="seo-num">02</span><div><h4>Technische SEO</h4><p>Snelle laadtijd, nette code en mobiel-first.</p></div></div>
+        <div class="seo-item"><span class="seo-num">03</span><div><h4>Lokale SEO</h4><p>Google Bedrijfsprofiel en lokale vindbaarheid.</p></div></div>
+        <div class="seo-item"><span class="seo-num">04</span><div><h4>Content &amp; meten</h4><p>Sterke teksten en <abbr data-tip="Google Search Console|Gratis Google-tool die bijhoudt hoe je website scoort in zoekresultaten en welke zoekwoorden bezoekers gebruiken.">Search Console</abbr>.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRANDING -->
+<section class="section section-branding" id="branding">
+  <div class="container">
+    <div class="section-header" data-reveal>
+      <span class="tag">Branding &amp; huisstijl</span>
+      <h2 class="section-title">Een merk dat<br>blijft hangen</h2>
+      <p class="section-sub">Een sterke website begint bij een sterk merk. We ontwerpen een complete, herkenbare uitstraling.</p>
+    </div>
+    <div class="brand-grid" data-stagger="90">
+      <div class="brand-card"><h4>Logo-ontwerp</h4><p>Een uniek, professioneel logo dat past bij jouw bedrijf en doelgroep.</p></div>
+      <div class="brand-card"><h4>Kleur &amp; typografie</h4><p>Een kleurenpalet en lettertypes die jouw merk overal consistent maken.</p></div>
+      <div class="brand-card"><h4>Visitekaartjes &amp; drukwerk</h4><p>Van visitekaartje tot social media templates — alles in één stijl.</p></div>
+      <div class="brand-card"><h4>Merkrichtlijnen</h4><p>Een helder document zodat jouw merk er altijd hetzelfde uitziet.</p></div>
+    </div>
+    <div class="section-cta" data-reveal><a href="offerte.html" class="btn btn-primary btn-lg">Bespreek je merk</a></div>
+  </div>
+</section>
+
+<!-- WERKWIJZE — ROADMAP -->
+<section class="section" id="werkwijze">
+  <div class="container">
+    <div class="section-header" data-reveal>
+      <span class="tag">Werkwijze</span>
+      <h2 class="section-title">Van gesprek<br>tot live website</h2>
+      <p class="section-sub">Een duidelijke route in 6 stappen — je weet altijd waar je aan toe bent.</p>
+    </div>
+
+    <div class="roadmap" id="roadmap">
+      <div class="road-line"><span class="road-line-fill"></span></div>
+      <div class="road-step"><div class="road-node">01</div><div class="road-card"><h3>Gratis intake</h3><p>Een eerlijk gesprek via telefoon of WhatsApp. Wat doet je bedrijf en wat moet de site bereiken?</p><span class="road-time">Dag 1</span></div></div>
+      <div class="road-step"><div class="road-node">02</div><div class="road-card"><h3>Offerte &amp; akkoord</h3><p>Heldere offerte met vaste prijs. Na akkoord en 50% aanbetaling starten we direct.</p><span class="road-time">Dag 1–2</span></div></div>
+      <div class="road-step"><div class="road-node">03</div><div class="road-card"><h3>Ontwerp &amp; preview</h3><p>Je ziet exact hoe de site eruit komt te zien voordat er code wordt geschreven.</p><span class="road-time">Dag 3–6</span></div></div>
+      <div class="road-step"><div class="road-node">04</div><div class="road-card"><h3>Bouw &amp; SEO</h3><p>Technisch gebouwd: snel, mobiel-vriendelijk en SEO-klaar. Hosting en mail zetten we op.</p><span class="road-time">Dag 7–11</span></div></div>
+      <div class="road-step"><div class="road-node">05</div><div class="road-card"><h3>Revisies</h3><p>Twee volledige revisierondes inbegrepen. We finetunen tot het klopt.</p><span class="road-time">Dag 12–13</span></div></div>
+      <div class="road-step"><div class="road-node">06</div><div class="road-card"><h3>Live &amp; overdracht</h3><p>De site gaat live met <abbr data-tip="SSL|Beveiligde verbinding (het 'slotje' in de browser). Zorgt dat gegevens versleuteld worden en Google je hoger rankt.">SSL</abbr>, domein en Search Console. 30 dagen gratis support.</p><span class="road-time">Dag 14</span></div></div>
+    </div>
+
+    <div class="section-cta" data-reveal><a href="offerte.html" class="btn btn-primary btn-lg">Plan je intake</a></div>
+  </div>
+</section>
+
+<!-- VOOR WIE — TEKST -->
+<section class="section section-wie" id="voorwie">
+  <div class="container">
+    <div class="section-header" data-reveal>
+      <span class="tag">Voor wie</span>
+      <h2 class="section-title">Welke bedrijven<br>helpen wij?</h2>
+      <p class="section-sub">Van lokale dienstverleners tot webshops — als je online wilt groeien, helpen we je verder.</p>
+    </div>
+    <div class="wie-text" data-stagger="70">
+      <div class="wie-item"><h4>Kappers &amp; barbers</h4><p>Online afspraken, diensten en openingstijden.</p></div>
+      <div class="wie-item"><h4>Restaurants</h4><p>Menu, reserveringen en bezorging.</p></div>
+      <div class="wie-item"><h4>Beautysalons</h4><p>Treatments, agenda en webshop.</p></div>
+      <div class="wie-item"><h4>Interieurbedrijven</h4><p>Portfolio en offerteaanvragen.</p></div>
+      <div class="wie-item"><h4>Aannemers &amp; vakmensen</h4><p>Diensten, referenties en contact.</p></div>
+      <div class="wie-item"><h4>Verenigingen</h4><p>Agenda, leden en donaties.</p></div>
+      <div class="wie-item"><h4>Webshops</h4><p>Producten, betaling en verzending.</p></div>
+      <div class="wie-item"><h4>ZZP &amp; coaches</h4><p>Personal brand, portfolio en leads.</p></div>
+    </div>
+    <div class="wie-cta" data-reveal>
+      <p>Staat jouw branche er niet bij?</p>
+      <a href="offerte.html" class="btn btn-primary">We helpen iedereen — vraag een offerte</a>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS — 2-RIJ LICHTKRANT -->
+<section class="section section-reviews" id="reviews">
+  <div class="container">
+    <div class="section-header" data-reveal>
+      <span class="tag">Ervaringen</span>
+      <h2 class="section-title">Wat klanten zeggen</h2>
+    </div>
+  </div>
+
+  <div class="rev-marquee" id="rev-marquee">
+    <div class="rev-row">
+      <div class="rev-track">
+        <div class="rev-card"><div class="rev-stars">★★★★★</div><p>"Klanten maken nu online afspraken en we krijgen veel meer aanvragen. Snel en eerlijk."</p><div class="rev-by"><span class="rev-av" style="background:#ef6a5a">A</span><div><strong>Ahmed B.</strong><em>Kapper — Leiden</em></div></div></div>
+        <div class="rev-card"><div class="rev-stars">★★★★★</div><p>"Eindelijk een site die écht strak oogt. Ziet er veel duurder uit dan hij was."</p><div class="rev-by"><span class="rev-av" style="background:#f3c14f">F</span><div><strong>Fatima N.</strong><em>Beautysalon — Schoonhoven</em></div></div></div>
+        <div class="rev-card"><div class="rev-stars">★★★★★</div><p>"Binnen twee weken live. iDEAL werkt perfect en de bestellingen komen binnen."</p><div class="rev-by"><span class="rev-av" style="background:#ffb486">M</span><div><strong>Marco V.</strong><em>Restaurant — Den Haag</em></div></div></div>
+        <div class="rev-card"><div class="rev-stars">★★★★★</div><p>"Mensen bellen en zeggen: ik zag jullie site. Beste investering die ik heb gedaan."</p><div class="rev-by"><span class="rev-av" style="background:#ef6a5a">Y</span><div><strong>Yalcin T.</strong><em>Interieur — Den Haag</em></div></div></div>
+        <div class="rev-card"><div class="rev-stars">★★★★★</div><p>"Persoonlijk contact, denkt echt mee. Geen verkooppraatjes maar gewoon goed werk."</p><div class="rev-by"><span class="rev-av" style="background:#f3c14f">S</span><div><strong>Sanne K.</strong><em>Coach — Utrecht</em></div></div></div>
+      </div>
+    </div>
+    <div class="rev-row">
+      <div class="rev-track">
+        <div class="rev-card"><div class="rev-stars">★★★★★</div><p>"We staan nu op pagina 1 voor onze regio. De SEO doet echt z'n werk."</p><div class="rev-by"><span class="rev-av" style="background:#ffb486">R</span><div><strong>Rachid E.</strong><em>Aannemer — Rotterdam</em></div></div></div>
+        <div class="rev-card"><div class="rev-stars">★★★★★</div><p>"Hosting en mail volledig geregeld, en uitgelegd hoe ik het op m'n telefoon zet. Top."</p><div class="rev-by"><span class="rev-av" style="background:#ef6a5a">L</span><div><strong>Lisa M.</strong><em>ZZP — Gouda</em></div></div></div>
+        <div class="rev-card"><div class="rev-stars">★★★★★</div><p>"Vaste prijs, geen verrassingen. Precies wat een ondernemer wil."</p><div class="rev-by"><span class="rev-av" style="background:#f3c14f">D</span><div><strong>Dennis P.</strong><em>Fitness — Alphen a/d Rijn</em></div></div></div>
+        <div class="rev-card"><div class="rev-stars">★★★★★</div><p>"Onze webshop draait soepel. Producten toevoegen kan ik nu zelf, super handig."</p><div class="rev-by"><span class="rev-av" style="background:#ffb486">N</span><div><strong>Nadia H.</strong><em>Webshop — Den Haag</em></div></div></div>
+        <div class="rev-card"><div class="rev-stars">★★★★★</div><p>"Snelle reacties via WhatsApp, ook na de oplevering. Echt een aanrader."</p><div class="rev-by"><span class="rev-av" style="background:#ef6a5a">J</span><div><strong>Joost B.</strong><em>Trainer — Leiden</em></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GARANTIE -->
+<section class="section section-garantie" data-reveal>
+  <div class="container">
+    <div class="garantie-block">
+      <div class="garantie-left">
+        <span class="tag">Onze belofte</span>
+        <h2 class="section-title">Jij neemt geen risico</h2>
+        <p>We leggen alles vast. Geen verborgen kosten, geen verrassingen, geen excuses.</p>
+      </div>
+      <div class="garantie-grid" data-stagger="100">
+        <div class="garantie-item"><h4>Vaste prijzen</h4><p>Je weet vooraf exact wat het kost.</p></div>
+        <div class="garantie-item"><h4>2 revisierondes</h4><p>Het wordt precies zoals jij het wil.</p></div>
+        <div class="garantie-item"><h4>30 dagen support</h4><p>Bugs lossen we binnen 24 uur op — gratis.</p></div>
+        <div class="garantie-item"><h4>Jouw eigendom</h4><p>100% van jou. Geen lock-in.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="section-header" data-reveal>
+      <span class="tag">FAQ</span>
+      <h2 class="section-title">Veelgestelde vragen</h2>
+    </div>
+    <div class="faq-list" data-reveal>
+      <div class="faq-item"><button class="faq-q">Hoe lang duurt het bouwen van een website?<span class="faq-arrow">+</span></button><div class="faq-a"><p>Gemiddeld is een website binnen 2 weken live. Een webshop duurt gemiddeld 3–4 weken.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Wat kost de hosting?<span class="faq-arrow">+</span></button><div class="faq-a"><p>We zetten de hosting gratis voor je op. De hostingkosten zelf (gemiddeld €5–€15/maand) lopen op jouw naam, zodat je altijd eigenaar blijft.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Krijg ik ook een zakelijk e-mailadres?<span class="faq-arrow">+</span></button><div class="faq-a"><p>Ja. We regelen een professioneel e-mailadres en helpen je persoonlijk om de mail op je telefoon en laptop te zetten.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Kan de website meertalig?<span class="faq-arrow">+</span></button><div class="faq-a"><p>Zeker. We kunnen je website in meerdere talen opleveren met een nette taalwissel — handig als je ook internationale klanten bedient.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Doen jullie ook SEO?<span class="faq-arrow">+</span></button><div class="faq-a"><p>Bij elke website is een SEO-basis inbegrepen. Wil je verder groeien, dan bieden we doorlopende SEO, adverteren (SEA) en social media advertising.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Betaal ik alles vooraf?<span class="faq-arrow">+</span></button><div class="faq-a"><p>Nee. We werken met 50% aanbetaling bij akkoord en 50% bij oplevering.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner" data-reveal>
+  <div class="container">
+    <div class="cta-inner">
+      <span class="cta-sub">Klaar om te beginnen?</span>
+      <h2 class="cta-title">Jouw website kan<br>dit weekend live zijn</h2>
+      <p class="cta-desc">Vraag een vrijblijvende offerte aan. Geen verplichtingen, geen verkooppraatjes — gewoon een eerlijk plan.</p>
+      <div class="cta-btns">
+        <a href="offerte.html" class="btn btn-primary btn-lg">Gratis offerte aanvragen</a>
+        <a href="#contact" class="btn btn-ghost btn-lg">Liever even sparren?</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT — SPARREN -->
+<section class="section section-contact" id="contact">
+  <div class="container">
+    <div class="spar-block" data-reveal>
+      <div class="spar-left">
+        <span class="tag">Even sparren?</span>
+        <h2 class="section-title">Liever eerst overleggen<br>over wat je nodig hebt?</h2>
+        <p class="spar-desc">Geen idee wat het beste past? Bel of WhatsApp ons gerust. We denken vrijblijvend met je mee — zonder verkooppraatjes.</p>
+        <div class="spar-avail">
+          <span class="avail-dot" id="avail-dot"></span>
+          <span id="avail-text">Beschikbaarheid laden…</span>
+        </div>
+        <p class="spar-hours">Telefonisch bereikbaar: <strong>elke dag 09:00–20:00</strong></p>
+        <div class="spar-actions">
+          <a href="tel:+31611277632" class="btn btn-primary">Bel direct</a>
+          <a href="https://wa.me/31611277632" class="wa-btn" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 0C5.4 0 0 5.4 0 12c0 2.1.6 4.1 1.5 5.8L0 24l6.3-1.5A12 12 0 0 0 12 24c6.6 0 12-5.4 12-12S18.6 0 12 0zm0 22a10 10 0 0 1-5.5-1.6l-.4-.2-4 1 1-3.9-.3-.4A10 10 0 1 1 12 22z"/></svg>
+            WhatsApp ons
+          </a>
+        </div>
+        <div class="spar-or"><span>of</span></div>
+        <a href="offerte.html" class="btn btn-ghost btn-lg">Vraag direct een offerte aan →</a>
+      </div>
+      <div class="spar-right">
+        <div class="spar-info">
+          <div class="ci"><a href="mailto:info@studiovelora.nl">info@studiovelora.nl</a></div>
+          <div class="ci"><a href="tel:+31611277632">+31 6 11 27 76 32</a></div>
+          <div class="ci"><span>Elke dag 09:00–20:00</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <span class="brand">Studio Velora</span>
+        </div>
+        <p class="footer-tagline">Digitaal design &amp; development studio. Websites, webshops en SEO voor Nederlandse ondernemers.</p>
+        <div class="footer-social">
+          <a href="https://instagram.com/studiovelora" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.4A4 4 0 1 1 12.6 8 4 4 0 0 1 16 11.4z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="https://linkedin.com/company/studiovelora" target="_blank" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="https://wa.me/31611277632" target="_blank" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5z"/></svg></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h5>Diensten</h5>
+        <ul>
+          <li><a href="website-laten-maken.html">Website laten maken</a></li>
+          <li><a href="diensten.html">Webshop</a></li>
+          <li><a href="seo.html">SEO</a></li>
+          <li><a href="social-media-advertising.html">Social media advertising</a></li>
+          <li><a href="conversie-optimalisatie.html">Conversie optimalisatie</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Bedrijf</h5>
+        <ul>
+          <li><a href="#over">Over <span class="brand brand-inline">Studio Velora</span></a></li>
+          <li><a href="diensten.html">Onze diensten</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="blog.html">Blog &amp; kennis</a></li>
+          <li><a href="seo-quickscan.html">SEO-quickscan</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="mailto:info@studiovelora.nl">info@studiovelora.nl</a></li>
+          <li><a href="tel:+31611277632">+31 6 11 27 76 32</a></li>
+          <li><span>Elke dag 09:00–20:00</span></li>
+        </ul>
+        <a href="offerte.html" class="footer-cta-btn">Gratis offerte aanvragen</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; Studio Velora. KvK in aanvraag. Alle rechten voorbehouden.</div>
+      <div class="footer-legal">
+        <a href="privacy.html">Privacyverklaring</a>
+        <a href="cookies.html">Cookiebeleid</a>
+        <a href="voorwaarden.html">Algemene voorwaarden</a>
+        <a href="disclaimer.html">Disclaimer</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
