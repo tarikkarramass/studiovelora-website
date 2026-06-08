@@ -20,6 +20,7 @@ export default defineConfig({
         privacy:                 resolve(__dirname, 'privacy.html'),
         cookies:                 resolve(__dirname, 'cookies.html'),
         disclaimer:              resolve(__dirname, 'disclaimer.html'),
+        mogelijkheden:           resolve(__dirname, 'mogelijkheden.html'),
       },
     },
   },
