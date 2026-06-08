@@ -650,8 +650,9 @@ body > *:not(#webgl-canvas){position:relative;z-index:2;}
 .dc-note{margin-top:.9rem;font-size:.78rem;color:var(--ink-soft);font-weight:600;}
 
 /* ---- ALTIJD INBEGREPEN band ---- */
-.incl-band{margin-top:2.5rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.2rem;background:var(--bg-2);border:1px solid var(--line);border-radius:var(--radius-lg);padding:2rem;}
-.incl-item{display:flex;gap:1rem;align-items:flex-start;}
+.incl-band{margin-top:2.5rem;display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem;background:var(--bg-2);border:1px solid var(--line);border-radius:var(--radius-lg);padding:2rem 2.2rem;}
+.incl-item{display:flex;gap:1rem;align-items:flex-start;min-width:0;overflow:hidden;}
+.incl-item>div{min-width:0;}
 .incl-ic{flex:0 0 auto;width:44px;height:44px;border-radius:13px;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;}
 .incl-ic svg{width:22px;height:22px;}
 .incl-item h4{font-family:'Quicksand',sans-serif;font-size:1rem;margin-bottom:.25rem;}
@@ -754,7 +755,7 @@ body > *:not(#webgl-canvas){position:relative;z-index:2;}
 @media(max-width:980px){
   .seo-grid{grid-template-columns:1fr;gap:2.2rem;}
   .brand-grid{grid-template-columns:1fr 1fr;}
-  .incl-band{grid-template-columns:1fr 1fr;}
+  .incl-band{grid-template-columns:1fr;}
   .wie-grid{grid-template-columns:repeat(2,1fr);}
   .spar-block{grid-template-columns:1fr;}
 }
