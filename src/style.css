@@ -642,10 +642,10 @@ body > *:not(#webgl-canvas){position:relative;z-index:2;}
 @keyframes chipFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
 
 /* ---- DIENSTEN: dual price + note ---- */
-.dc-price-dual{display:flex;align-items:baseline;gap:.6rem;}
-.dp-opt{font-family:'Quicksand',sans-serif;font-size:2.4rem;font-weight:700;color:var(--ink);}
-.dp-opt small{font-size:1.1rem;color:var(--ink-soft);}
-.dp-or{font-size:1rem;font-weight:700;color:var(--ink-faint);}
+.dc-price-dual{display:flex;align-items:baseline;gap:.7rem;}
+.dp-num{font-family:'Quicksand',sans-serif;font-size:2.2rem;font-weight:700;color:var(--ink);line-height:1;}
+.dp-num small{font-size:.95rem;font-weight:500;color:var(--ink-soft);}
+.dp-or{font-size:.95rem;font-weight:700;color:var(--ink-faint);padding:0 .1rem;}
 .dc-note{margin-top:.9rem;font-size:.78rem;color:var(--ink-soft);font-weight:600;}
 
 /* ---- ALTIJD INBEGREPEN band ---- */
