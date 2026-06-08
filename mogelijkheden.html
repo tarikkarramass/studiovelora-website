@@ -8,16 +8,23 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Quicksand:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@1,600;1,700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/src/style.css" />
   <style>
-    .mog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.6rem;margin-top:3rem;}
-    .mog-card{background:var(--surface-2);border:1px solid var(--line);border-radius:var(--radius);padding:2rem;transition:transform .25s,box-shadow .25s;}
+    .mog-header{padding:7rem 0 2.5rem;}
+    .mog-header h1{font-size:clamp(2rem,4vw,3.2rem);margin-bottom:.6rem;}
+    .mog-header p{color:var(--ink-soft);font-size:1rem;max-width:520px;}
+    .mog-filters{display:flex;flex-wrap:wrap;gap:.5rem;margin:2rem 0 2.5rem;}
+    .mog-filter{cursor:pointer;font-family:'Quicksand',sans-serif;font-size:.82rem;font-weight:700;padding:.5rem 1.1rem;border-radius:50px;border:1.5px solid var(--line);background:var(--surface-2);color:var(--ink-soft);transition:all .18s;}
+    .mog-filter:hover{border-color:var(--primary);color:var(--primary);}
+    .mog-filter.active{background:var(--primary);border-color:var(--primary);color:#fff;}
+    .mog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:1.4rem;}
+    .mog-card{background:var(--surface-2);border:1px solid var(--line);border-radius:var(--radius);padding:1.8rem;transition:transform .25s,box-shadow .25s,opacity .2s;}
     .mog-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
-    .mog-icon{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;font-size:1.4rem;}
-    .mog-card h3{font-size:1.15rem;margin-bottom:.5rem;}
-    .mog-card p{font-size:.88rem;color:var(--ink-soft);line-height:1.6;margin-bottom:1rem;}
-    .mog-example{background:var(--bg-2);border:1px solid var(--line);border-radius:10px;padding:.8rem 1rem;font-size:.8rem;color:var(--ink-soft);}
-    .mog-example strong{display:block;font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--primary);margin-bottom:.25rem;}
-    .mog-cat{margin-top:4rem;}
-    .mog-cat-title{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:1.5rem;padding-bottom:.6rem;border-bottom:1px solid var(--line);}
+    .mog-card.hidden{display:none;}
+    .mog-tag{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--primary);margin-bottom:.8rem;}
+    .mog-card h3{font-size:1.1rem;margin-bottom:.45rem;}
+    .mog-card p{font-size:.86rem;color:var(--ink-soft);line-height:1.65;margin-bottom:1rem;}
+    .mog-example{background:var(--bg-2);border:1px solid var(--line);border-radius:10px;padding:.75rem 1rem;font-size:.8rem;color:var(--ink-soft);}
+    .mog-example strong{display:block;font-size:.7rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--primary);margin-bottom:.2rem;}
+    .mog-empty{display:none;grid-column:1/-1;text-align:center;padding:3rem;color:var(--ink-faint);font-size:.95rem;}
     @media(max-width:600px){.mog-grid{grid-template-columns:1fr;}}
   </style>
 </head>
@@ -30,183 +37,168 @@
   </div>
 </div></nav>
 
-<header class="subhero container">
-  <div class="crumbs"><a href="/">Home</a> · Mogelijkheden</div>
-  <span class="tag">Mogelijkheden</span>
-  <h1>Alles mogelijk.<br>Niets te veel.</h1>
-  <p class="lead">Van een simpele contactpagina tot een volledig klantportaal met AI. Hier vind je alles wat we kunnen bouwen — met uitleg en een concreet voorbeeld per functie.</p>
-  <div class="subhero-cta"><a href="offerte.html" class="btn btn-primary btn-lg">Gratis offerte</a><a href="#contact" class="btn btn-ghost btn-lg">Stel een vraag</a></div>
-</header>
+<div class="container">
+  <div class="mog-header">
+    <div class="crumbs"><a href="/">Home</a> · Mogelijkheden</div>
+    <h1>Alle mogelijkheden</h1>
+    <p>Van een simpele contactpagina tot een volledig klantportaal met AI — dit is een greep uit wat we bouwen.</p>
+  </div>
 
-<section class="section">
-  <div class="container">
+  <!-- FILTERS -->
+  <div class="mog-filters">
+    <button class="mog-filter active" data-filter="all">Alles</button>
+    <button class="mog-filter" data-filter="contact">Klantcontact</button>
+    <button class="mog-filter" data-filter="verkoop">Verkoop &amp; betalen</button>
+    <button class="mog-filter" data-filter="automatisering">Automatisering</button>
+    <button class="mog-filter" data-filter="beheer">Beheer &amp; content</button>
+  </div>
 
-    <!-- KLANTCONTACT -->
-    <div class="mog-cat">
-      <div class="mog-cat-title">Klantcontact &amp; bereikbaarheid</div>
-      <div class="mog-grid">
+  <!-- GRID -->
+  <div class="mog-grid" id="mog-grid">
 
-        <div class="mog-card">
-          <div class="mog-icon" style="background:rgba(239,106,90,.12);">📅</div>
-          <h3>Afspraakmodule</h3>
-          <p>Klanten plannen zelf een afspraak via de website — geen heen-en-weer bellen meer. Jij bepaalt je beschikbaarheid, zij kiezen een moment. Automatische bevestigingsmail inbegrepen.</p>
-          <div class="mog-example"><strong>Voorbeeld</strong>Een kapper of fysiotherapeut laat klanten online een tijdslot kiezen. Jij krijgt een melding, de klant een bevestiging.</div>
-        </div>
-
-        <div class="mog-card">
-          <div class="mog-icon" style="background:rgba(37,211,102,.12);">💬</div>
-          <h3>WhatsApp-knop</h3>
-          <p>Een directe WhatsApp-knop op de website waarmee bezoekers met één klik een gesprek starten. Werkt op mobiel en desktop, lage drempel voor potentiële klanten.</p>
-          <div class="mog-example"><strong>Voorbeeld</strong>Een installateur zet een WhatsApp-knop op zijn website. Klanten sturen een foto van het probleem en krijgen direct een reactie.</div>
-        </div>
-
-        <div class="mog-card">
-          <div class="mog-icon" style="background:rgba(61,107,255,.12);">💻</div>
-          <h3>Live chat</h3>
-          <p>Realtime chatten met bezoekers terwijl ze op de website zijn. Ideaal om vragen te beantwoorden op het moment dat de bezoeker al geïnteresseerd is — verhoogt de conversie.</p>
-          <div class="mog-example"><strong>Voorbeeld</strong>Een webshop met live chat ziet dat een bezoeker lang op de betaalpagina staat en stuurt proactief een berichtje: "Kan ik je ergens mee helpen?"</div>
-        </div>
-
-        <div class="mog-card">
-          <div class="mog-icon" style="background:rgba(243,193,79,.12);">🤖</div>
-          <h3>AI chatbot</h3>
-          <p>Een slimme chatbot die 24/7 vragen beantwoordt op basis van jouw website-inhoud. Klanten krijgen direct antwoord — ook buiten kantooruren — zonder dat jij er iets voor hoeft te doen.</p>
-          <div class="mog-example"><strong>Voorbeeld</strong>Een salon heeft een AI chatbot die vragen beantwoordt over prijzen, openingstijden en producten. 's Nachts worden er gewoon afspraken ingepland.</div>
-        </div>
-
-        <div class="mog-card">
-          <div class="mog-icon" style="background:rgba(255,180,134,.12);">⭐</div>
-          <h3>Reviews tonen</h3>
-          <p>Automatisch je Google-reviews ophalen en mooi weergeven op de website. Verse reviews verschijnen vanzelf — geen handmatig kopiëren. Vertrouwen winnen bij nieuwe bezoekers.</p>
-          <div class="mog-example"><strong>Voorbeeld</strong>Een schoonheidssalon toont haar nieuwste Google-reviews op de homepage. Bezoekers zien direct wat anderen ervan vinden.</div>
-        </div>
-
-        <div class="mog-card">
-          <div class="mog-icon" style="background:rgba(94,196,138,.12);">📍</div>
-          <h3>Google Maps integratie</h3>
-          <p>Een interactieve kaart op de contactpagina zodat bezoekers je direct kunnen vinden en routebeschrijving kunnen openen. Werkt ook voor meerdere vestigingen.</p>
-          <div class="mog-example"><strong>Voorbeeld</strong>Een restaurant heeft een kaart op de website. Bezoekers klikken op "Route" en worden direct naar Google Maps gestuurd.</div>
-        </div>
-
-      </div>
+    <div class="mog-card" data-cat="contact">
+      <span class="mog-tag">Klantcontact</span>
+      <h3>Afspraakmodule</h3>
+      <p>Klanten plannen zelf een afspraak via de website — geen heen-en-weer bellen meer. Jij bepaalt je beschikbaarheid, zij kiezen een moment. Automatische bevestigingsmail inbegrepen.</p>
+      <div class="mog-example"><strong>Voorbeeld</strong>Een kapper of fysiotherapeut laat klanten online een tijdslot kiezen. Jij krijgt een melding, de klant een bevestiging.</div>
     </div>
 
-    <!-- VERKOOP & BETALEN -->
-    <div class="mog-cat">
-      <div class="mog-cat-title">Verkoop &amp; betalen</div>
-      <div class="mog-grid">
-
-        <div class="mog-card">
-          <div class="mog-icon" style="background:rgba(239,106,90,.12);">🛒</div>
-          <h3>Webshop</h3>
-          <p>Een complete online winkel met productbeheer, winkelwagen, betaaloplossingen (iDEAL, creditcard, Klarna) en automatische orderbevestigingen. Geschikt voor fysieke én digitale producten.</p>
-          <div class="mog-example"><strong>Voorbeeld</strong>Een kaarsenmaker verkoopt via een webshop. Klanten betalen via iDEAL, krijgen een bevestiging en de ondernemer ontvangt een melding om te verzenden.</div>
-        </div>
-
-        <div class="mog-card">
-          <div class="mog-icon" style="background:rgba(243,193,79,.12);">🏨</div>
-          <h3>Online reserveringen</h3>
-          <p>Klanten reserveren een tafel, kamer, vergaderruimte of activiteit rechtstreeks via de website. Capaciteitsbeheer, bevestigingsmails en annuleringsopties inbegrepen.</p>
-          <div class="mog-example"><strong>Voorbeeld</strong>Een B&amp;B laat bezoekers direct een kamer boeken met datumkeuze en aantal personen. Betaling kan direct of bij aankomst.</div>
-        </div>
-
-        <div class="mog-card">
-          <div class="mog-icon" style="background:rgba(61,107,255,.12);">💳</div>
-          <h3>iDEAL &amp; online betalen</h3>
-          <p>Veilig betalen via iDEAL, creditcard, Wero of Klarna. Geïntegreerd via Stripe of Mollie — de meest betrouwbare betaalproviders van Nederland. Jij ontvangt het geld direct op je rekening.</p>
-          <div class="mog-example"><strong>Voorbeeld</strong>Een coach verkoopt losse sessies of bundels via de website. Klanten betalen direct en ontvangen automatisch een factuur.</div>
-        </div>
-
-        <div class="mog-card">
-          <div class="mog-icon" style="background:rgba(94,196,138,.12);">🧾</div>
-          <h3>Factuurmodule</h3>
-          <p>Automatisch facturen aanmaken en versturen na een aankoop of opdracht. PDF-facturen met jouw huisstijl, btw-berekening en factuurnummer — alles geautomatiseerd.</p>
-          <div class="mog-example"><strong>Voorbeeld</strong>Een fotograaf ontvangt een boeking via de website. De klant krijgt automatisch een factuur per mail en de betaalnling wordt bijgehouden.</div>
-        </div>
-
-      </div>
+    <div class="mog-card" data-cat="contact">
+      <span class="mog-tag">Klantcontact</span>
+      <h3>WhatsApp-knop</h3>
+      <p>Een directe WhatsApp-knop op de website waarmee bezoekers met één klik een gesprek starten. Werkt op mobiel en desktop, lage drempel voor potentiële klanten.</p>
+      <div class="mog-example"><strong>Voorbeeld</strong>Een installateur zet een WhatsApp-knop op zijn website. Klanten sturen een foto van het probleem en krijgen direct een reactie.</div>
     </div>
 
-    <!-- AUTOMATISERING -->
-    <div class="mog-cat">
-      <div class="mog-cat-title">Automatisering</div>
-      <div class="mog-grid">
-
-        <div class="mog-card">
-          <div class="mog-icon" style="background:rgba(239,106,90,.12);">⚡</div>
-          <h3>Automatisering</h3>
-          <p>Taken die je nu handmatig doet, laten we de website automatisch afhandelen. Denk aan bevestigingsmails bij een aanvraag, herinneringen voor een afspraak, of een bedankmail na een aankoop.</p>
-          <div class="mog-example"><strong>Voorbeeld</strong>Een tandarts stuurt automatisch een herinnering 24 uur voor een afspraak. Klanten bevestigen of annuleren met één klik — zonder dat jij er aan hoeft te denken.</div>
-        </div>
-
-        <div class="mog-card">
-          <div class="mog-icon" style="background:rgba(243,193,79,.12);">📧</div>
-          <h3>Nieuwsbrief</h3>
-          <p>Een e-maillijst opbouwen via de website en nieuwsbrieven versturen. Nieuwe abonnees krijgen automatisch een welkomstmail. Koppeling met Mailchimp, Brevo of eigen systeem.</p>
-          <div class="mog-example"><strong>Voorbeeld</strong>Een interieurontwerper bouwt een lijst op via haar blog. Elke maand stuurt ze inspiratie naar 500 abonnees — geheel automatisch gepland.</div>
-        </div>
-
-        <div class="mog-card">
-          <div class="mog-icon" style="background:rgba(255,180,134,.12);">📊</div>
-          <h3>Analytics &amp; statistieken</h3>
-          <p>Inzicht in hoeveel bezoekers je website heeft, waar ze vandaan komen en welke pagina's het best werken. Koppeling met Google Analytics — volledig AVG-proof.</p>
-          <div class="mog-example"><strong>Voorbeeld</strong>Een ondernemer ziet dat 60% van zijn bezoekers via Google op de contactpagina belandt. Hij past de tekst aan — en ziet meer aanvragen binnenkomen.</div>
-        </div>
-
-      </div>
+    <div class="mog-card" data-cat="contact">
+      <span class="mog-tag">Klantcontact</span>
+      <h3>Live chat</h3>
+      <p>Realtime chatten met bezoekers terwijl ze op de website zijn. Ideaal om vragen te beantwoorden op het moment dat de bezoeker al geïnteresseerd is — verhoogt de conversie.</p>
+      <div class="mog-example"><strong>Voorbeeld</strong>Een webshop ziet dat een bezoeker lang op de betaalpagina staat en stuurt proactief een berichtje: "Kan ik je ergens mee helpen?"</div>
     </div>
 
-    <!-- BEHEER & CONTENT -->
-    <div class="mog-cat">
-      <div class="mog-cat-title">Beheer &amp; content</div>
-      <div class="mog-grid">
-
-        <div class="mog-card">
-          <div class="mog-icon" style="background:rgba(61,107,255,.12);">✏️</div>
-          <h3>CMS — zelf aanpassen</h3>
-          <p>Met een CMS (contentbeheersysteem) pas je zelf teksten, afbeeldingen en pagina's aan zonder technische kennis. Geen developer nodig voor elke kleine wijziging.</p>
-          <div class="mog-example"><strong>Voorbeeld</strong>Een restaurant past zelf het menu aan als de seizoenskaart verandert. Inloggen, tekst aanpassen, opslaan — binnen 2 minuten online.</div>
-        </div>
-
-        <div class="mog-card">
-          <div class="mog-icon" style="background:rgba(94,196,138,.12);">📝</div>
-          <h3>Blog &amp; nieuws</h3>
-          <p>Een blog of nieuwssectie om expertise te tonen en beter gevonden te worden op Google. Elk artikel is een kans om nieuwe bezoekers aan te trekken via zoekopdrachten.</p>
-          <div class="mog-example"><strong>Voorbeeld</strong>Een accountant schrijft maandelijks een artikel over belastingtips. Zijn blog trekt 300 nieuwe bezoekers per maand via Google — gratis verkeer.</div>
-        </div>
-
-        <div class="mog-card">
-          <div class="mog-icon" style="background:rgba(239,106,90,.12);">🔐</div>
-          <h3>Klantportaal</h3>
-          <p>Een afgeschermde omgeving per klant waar ze documenten, facturen, offertes of voortgang kunnen inzien. Professioneel en efficiënt — alles op één plek voor jouw klant.</p>
-          <div class="mog-example"><strong>Voorbeeld</strong>Een boekhouder geeft elke klant een eigen portaal waar ze jaarstukken, facturen en BTW-aangiftes kunnen downloaden.</div>
-        </div>
-
-        <div class="mog-card">
-          <div class="mog-icon" style="background:rgba(243,193,79,.12);">⚙️</div>
-          <h3>Admin dashboard</h3>
-          <p>Een eigen beheerpaneel waar jij alle data van je website overziet: bestellingen, aanvragen, klanten, statistieken. Alles op één scherm, toegankelijk op elke apparaat.</p>
-          <div class="mog-example"><strong>Voorbeeld</strong>Een evenementenorganisator beheert alle aanmeldingen, betalingen en communicatie via één dashboard — geen losse Excel-bestanden meer.</div>
-        </div>
-
-        <div class="mog-card">
-          <div class="mog-icon" style="background:rgba(255,180,134,.12);">🌍</div>
-          <h3>Meertalige website</h3>
-          <p>De website automatisch of handmatig in meerdere talen aanbieden. Bezoekers zien de versie in hun taal. Belangrijk voor bedrijven met internationale klanten of toeristen.</p>
-          <div class="mog-example"><strong>Voorbeeld</strong>Een Amsterdamse B&amp;B heeft een website in het Nederlands en Engels. Buitenlandse bezoekers zien automatisch de Engelse versie.</div>
-        </div>
-
-      </div>
+    <div class="mog-card" data-cat="contact automatisering">
+      <span class="mog-tag">Klantcontact</span>
+      <h3>AI chatbot</h3>
+      <p>Een slimme chatbot die 24/7 vragen beantwoordt op basis van jouw website-inhoud. Klanten krijgen direct antwoord — ook buiten kantooruren — zonder dat jij er iets voor hoeft te doen.</p>
+      <div class="mog-example"><strong>Voorbeeld</strong>Een salon heeft een AI chatbot die vragen beantwoordt over prijzen en openingstijden. 's Nachts worden er gewoon afspraken ingepland.</div>
     </div>
 
-    <!-- CTA -->
-    <div class="section-cta" data-reveal style="margin-top:4rem;">
-      <p style="color:var(--ink-soft);margin-bottom:1.2rem;">Staat jouw wens er niet tussen? We bouwen ook volledig maatwerk.</p>
-      <a href="offerte.html" class="btn btn-primary btn-lg">Gratis offerte aanvragen</a>
+    <div class="mog-card" data-cat="contact">
+      <span class="mog-tag">Klantcontact</span>
+      <h3>Reviews tonen</h3>
+      <p>Automatisch je Google-reviews ophalen en mooi weergeven op de website. Verse reviews verschijnen vanzelf — geen handmatig kopiëren. Vertrouwen winnen bij nieuwe bezoekers.</p>
+      <div class="mog-example"><strong>Voorbeeld</strong>Een schoonheidssalon toont haar nieuwste Google-reviews op de homepage. Bezoekers zien direct wat anderen vinden.</div>
     </div>
+
+    <div class="mog-card" data-cat="contact">
+      <span class="mog-tag">Klantcontact</span>
+      <h3>Google Maps integratie</h3>
+      <p>Een interactieve kaart op de contactpagina zodat bezoekers je direct kunnen vinden en de routebeschrijving kunnen openen. Werkt ook voor meerdere vestigingen.</p>
+      <div class="mog-example"><strong>Voorbeeld</strong>Een restaurant heeft een kaart op de website. Bezoekers klikken op "Route" en worden direct naar Google Maps gestuurd.</div>
+    </div>
+
+    <div class="mog-card" data-cat="verkoop">
+      <span class="mog-tag">Verkoop &amp; betalen</span>
+      <h3>Webshop</h3>
+      <p>Een complete online winkel met productbeheer, winkelwagen en betaaloplossingen (iDEAL, creditcard, Klarna). Geschikt voor fysieke én digitale producten.</p>
+      <div class="mog-example"><strong>Voorbeeld</strong>Een kaarsenmaker verkoopt via een webshop. Klanten betalen via iDEAL en ontvangen automatisch een bevestiging.</div>
+    </div>
+
+    <div class="mog-card" data-cat="verkoop">
+      <span class="mog-tag">Verkoop &amp; betalen</span>
+      <h3>Online reserveringen</h3>
+      <p>Klanten reserveren een tafel, kamer of activiteit rechtstreeks via de website. Capaciteitsbeheer, bevestigingsmails en annuleringsopties inbegrepen.</p>
+      <div class="mog-example"><strong>Voorbeeld</strong>Een B&amp;B laat bezoekers direct een kamer boeken met datumkeuze en aantal personen.</div>
+    </div>
+
+    <div class="mog-card" data-cat="verkoop">
+      <span class="mog-tag">Verkoop &amp; betalen</span>
+      <h3>iDEAL &amp; online betalen</h3>
+      <p>Veilig betalen via iDEAL, creditcard, Wero of Klarna. Geïntegreerd via Stripe of Mollie. Jij ontvangt het geld direct op je rekening.</p>
+      <div class="mog-example"><strong>Voorbeeld</strong>Een coach verkoopt sessies via de website. Klanten betalen direct en ontvangen automatisch een factuur.</div>
+    </div>
+
+    <div class="mog-card" data-cat="verkoop automatisering">
+      <span class="mog-tag">Verkoop &amp; betalen</span>
+      <h3>Factuurmodule</h3>
+      <p>Automatisch facturen aanmaken en versturen na een aankoop of opdracht. PDF-facturen met jouw huisstijl, btw-berekening en factuurnummer — alles geautomatiseerd.</p>
+      <div class="mog-example"><strong>Voorbeeld</strong>Een fotograaf ontvangt een boeking. De klant krijgt automatisch een factuur per mail en de betaling wordt bijgehouden.</div>
+    </div>
+
+    <div class="mog-card" data-cat="automatisering">
+      <span class="mog-tag">Automatisering</span>
+      <h3>Geautomatiseerde e-mails</h3>
+      <p>Taken die je nu handmatig doet, laten we de website automatisch afhandelen. Bevestigingsmails bij aanvraag, herinneringen voor afspraken, bedankmails na aankoop.</p>
+      <div class="mog-example"><strong>Voorbeeld</strong>Een tandarts stuurt automatisch een herinnering 24 uur voor een afspraak. Klanten bevestigen met één klik — zonder dat jij er aan denkt.</div>
+    </div>
+
+    <div class="mog-card" data-cat="automatisering beheer">
+      <span class="mog-tag">Automatisering</span>
+      <h3>Nieuwsbrief</h3>
+      <p>Een e-maillijst opbouwen via de website en nieuwsbrieven versturen. Nieuwe abonnees krijgen automatisch een welkomstmail. Koppeling met Mailchimp of Brevo.</p>
+      <div class="mog-example"><strong>Voorbeeld</strong>Een interieurontwerper bouwt een lijst op via haar blog. Elke maand stuurt ze inspiratie naar 500 abonnees — volledig automatisch gepland.</div>
+    </div>
+
+    <div class="mog-card" data-cat="automatisering beheer">
+      <span class="mog-tag">Automatisering</span>
+      <h3>Analytics &amp; statistieken</h3>
+      <p>Inzicht in hoeveel bezoekers je website heeft, waar ze vandaan komen en welke pagina's het best werken. Koppeling met Google Analytics — volledig AVG-proof.</p>
+      <div class="mog-example"><strong>Voorbeeld</strong>Een ondernemer ziet dat 60% van zijn bezoekers via Google op de contactpagina belandt en past de tekst aan — meer aanvragen als resultaat.</div>
+    </div>
+
+    <div class="mog-card" data-cat="beheer">
+      <span class="mog-tag">Beheer &amp; content</span>
+      <h3>CMS — zelf aanpassen</h3>
+      <p>Met een CMS pas je zelf teksten, afbeeldingen en pagina's aan zonder technische kennis. Geen developer nodig voor elke kleine wijziging.</p>
+      <div class="mog-example"><strong>Voorbeeld</strong>Een restaurant past zelf het menu aan als de seizoenskaart verandert. Inloggen, tekst aanpassen, opslaan — binnen 2 minuten online.</div>
+    </div>
+
+    <div class="mog-card" data-cat="beheer">
+      <span class="mog-tag">Beheer &amp; content</span>
+      <h3>Blog &amp; nieuws</h3>
+      <p>Een blog of nieuwssectie om expertise te tonen en beter gevonden te worden op Google. Elk artikel trekt nieuwe bezoekers via zoekopdrachten.</p>
+      <div class="mog-example"><strong>Voorbeeld</strong>Een accountant schrijft maandelijks een artikel over belastingtips en trekt daarmee 300 nieuwe bezoekers per maand via Google.</div>
+    </div>
+
+    <div class="mog-card" data-cat="beheer">
+      <span class="mog-tag">Beheer &amp; content</span>
+      <h3>Klantportaal</h3>
+      <p>Een afgeschermde omgeving per klant waar ze documenten, facturen of voortgang kunnen inzien. Professioneel en efficiënt — alles op één plek voor jouw klant.</p>
+      <div class="mog-example"><strong>Voorbeeld</strong>Een boekhouder geeft elke klant een eigen portaal waar ze jaarstukken en BTW-aangiftes kunnen downloaden.</div>
+    </div>
+
+    <div class="mog-card" data-cat="beheer">
+      <span class="mog-tag">Beheer &amp; content</span>
+      <h3>Admin dashboard</h3>
+      <p>Een eigen beheerpaneel waar jij alle data van je website overziet: bestellingen, aanvragen, klanten, statistieken. Alles op één scherm, toegankelijk op elk apparaat.</p>
+      <div class="mog-example"><strong>Voorbeeld</strong>Een evenementenorganisator beheert alle aanmeldingen en betalingen via één dashboard — geen losse Excel-bestanden meer.</div>
+    </div>
+
+    <div class="mog-card" data-cat="beheer">
+      <span class="mog-tag">Beheer &amp; content</span>
+      <h3>Meertalige website</h3>
+      <p>De website in meerdere talen aanbieden. Bezoekers zien de versie in hun taal. Belangrijk voor bedrijven met internationale klanten of toeristen.</p>
+      <div class="mog-example"><strong>Voorbeeld</strong>Een Amsterdamse B&amp;B heeft een website in het Nederlands en Engels. Buitenlandse bezoekers zien automatisch de Engelse versie.</div>
+    </div>
+
+    <div class="mog-card" data-cat="beheer">
+      <span class="mog-tag">Beheer &amp; content</span>
+      <h3>Loginomgeving</h3>
+      <p>Een beveiligde inlogpagina voor medewerkers of klanten. Iedereen ziet alleen wat voor hen bedoeld is. Rollen en rechten per gebruiker instelbaar.</p>
+      <div class="mog-example"><strong>Voorbeeld</strong>Een schoonmaakbedrijf geeft medewerkers een eigen login waar ze hun rooster en werklocaties kunnen bekijken.</div>
+    </div>
+
+    <div class="mog-empty" id="mog-empty">Geen resultaten in deze categorie.</div>
 
   </div>
-</section>
+
+  <!-- CTA -->
+  <div style="text-align:center;padding:4rem 0 3rem;">
+    <p style="color:var(--ink-soft);margin-bottom:1.2rem;font-size:.95rem;">Staat jouw wens er niet tussen? We bouwen ook volledig maatwerk.</p>
+    <a href="offerte.html" class="btn btn-primary btn-lg">Gratis offerte aanvragen</a>
+  </div>
+</div>
 
 <footer class="footer">
   <div class="container">
@@ -262,6 +254,28 @@
     </div>
   </div>
 </footer>
+
+<script>
+  const filters = document.querySelectorAll('.mog-filter');
+  const cards = document.querySelectorAll('.mog-card');
+  const empty = document.getElementById('mog-empty');
+
+  filters.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filters.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+      let visible = 0;
+      cards.forEach(card => {
+        const cats = card.dataset.cat || '';
+        const show = f === 'all' || cats.split(' ').includes(f);
+        card.classList.toggle('hidden', !show);
+        if (show) visible++;
+      });
+      empty.style.display = visible === 0 ? 'block' : 'none';
+    });
+  });
+</script>
 <script src="/subpage.js"></script>
 </body>
 </html>
