@@ -488,6 +488,7 @@ body > *:not(#webgl-canvas){position:relative;z-index:2;}
 }
 @media(max-width:680px){
   .nav-links{display:none;}
+  .nav-cta-ghost{display:none;}
   .section{padding:4.5rem 0;}
   .container{padding:0 1.2rem;}
   .about-grid,.garantie-block,.compare-block{padding:2rem;}
