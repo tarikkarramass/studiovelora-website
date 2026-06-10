@@ -21,6 +21,7 @@ export default defineConfig({
         cookies:                 resolve(__dirname, 'cookies.html'),
         disclaimer:              resolve(__dirname, 'disclaimer.html'),
         mogelijkheden:           resolve(__dirname, 'mogelijkheden.html'),
+        onsTeam:                 resolve(__dirname, 'ons-team.html'),
       },
     },
   },
